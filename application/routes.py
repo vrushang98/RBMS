@@ -208,22 +208,10 @@ def create_customer():
                     flash('Invalid SSN ID', 'danger')
                     return redirect(url_for('create_customer')) 
                 
-                
-                # state=form.state.data
-                # city=form.city.data
-                # ssn_id = request.form.get('ssn_id')
-                # user = Create_customer.objects(ssn_id=ssn_id).first()
-                # customer_name = request.form.get('customer_name')
-                # age = request.form.get('age')
-                # address = request.form.get('address')
-                # state = request.form.get('state')
-                # city = request.form.get('city')
+       
                 Customer(ws_ssn_id=ssn_id,ws_cust_id=cust_id,ws_name=customer_name,ws_age=age,ws_address=address).save()
                 Customer_Status(ws_ssn_id=ssn_id,ws_cust_id=cust_id,ws_status=status,ws_message=message,ws_cust_lastUdate=last_updated).save()
-                # if user:
-                #     flash('ssn_id should be unique', 'danger')
-                #     return redirect(url_for('create_customer'))  
-
+        
 
 
                 flash('Thank  for submmtimg  your details.we will get  back to you soon', 'success')
@@ -296,28 +284,10 @@ def update_customer(id):
                 flash('your details are updated', 'success')
                 return redirect(url_for('index'))
 
-        # update_customer=Customer.objects(ws_ssn_id=id).first()
         return render_template('update_customer1.html',update_customer=update_customer,form=form)
     else:
         flash("Sorry You are not authorised to access this page","danger")
         return redirect("/")
-
-# @app.route('/update_customer',methods=['POST'])
-# def update_customer_details():
-    
-#     form=Update_Customer_Form()  
-#     print("form ",form.ssn_id.data)
-#     update_customer=Customer.objects(ws_ssn_id=form.ssn_id.data).first()
-#     if(request.method=='POST'):
-#         if (form.validate_on_submit()):
-            
-#             update_customer.ws_name=form.new_customer_name.data
-#             update_customer.ws_age=form.new_age.data
-#             update_customer.ws_address=form.new_address.data
-#             update_customer.save()
-#             flash('your details is updated', 'success')
-#             return redirect(url_for('index'))
-
 
 
 
@@ -485,7 +455,7 @@ def account_delete_search():
             if accounts:
             
                 acct_type=accounts[0]['ws_acct_type']
-                # accounts[0]['ws_acct_type']
+
 
                 for account in accounts:
                     acc_id.append((account.ws_acct_id,account.ws_acct_id))
@@ -493,7 +463,7 @@ def account_delete_search():
                 form.ws_acct_id.choices = acc_id
                 form.ws_acct_type.data=acct_type
                 return render_template('account_delete.html',form=form, accounts =accounts,acc_id=acc_id)
-                #form.ws_acct_type.default = form.ws_acc_id.data 
+ 
         
             else:
                 flash("Invalid Customer Id","danger")
@@ -567,7 +537,7 @@ def view_transfer():
         form=TransferForm()
         accounts=Account.objects(ws_cust_id=request.form["cust_id"]).all()
         acct_id = []
-        # accounts[0]['ws_acct_type']
+
         for account in accounts:
             acct_id.append((account.ws_acct_id,str(account.ws_acct_id)))
         print(acct_id)
@@ -579,8 +549,7 @@ def view_transfer():
         form.ws_target_type.data=accounts[0]['ws_acct_type']
         return render_template("view_transfer.html",form=form)
 
-        # account=Account.objects(ws_acct_id=request.form["acct_id"]).first()
-        # return account["ws_acct_type"]
+ 
     else:
         flash("Sorry You are not authorised to access this page","danger")
         return redirect("/")
@@ -604,7 +573,7 @@ def deposit_amount():
     if session.get('userId') and session.get('roleId')=="2222":
         print("inside acct delete",request.form["acct_id"])
         account=Account.objects(ws_acct_id=request.form["acct_id"]).first()
-        # return account["ws_acct_type"]
+
         if not request.form["deposit_amount"].isnumeric():
             flash("Please enter only digits","danger")
             return render_template('view_deposit.html',account=account)
@@ -626,13 +595,7 @@ def deposit_amount():
         account.save()
         flash("Amount deposited successfully","success")
         return redirect('/view_single/'+request.form["acct_id"])
-        # return render_template('single_account_details.html',account = account)
-        # if(account["ws_acct_balance"]<int(deposit_amount)):
-        #     return "Invalid Amount
-        #     flash("Invalid d","danger")
-        #     return render_template('view_deposit.html',account=account)
-        # else:
-            # return "Valid Amount"
+
     else:
         flash("Sorry You are not authorised to access this page","danger")
         return redirect("/")
@@ -641,7 +604,7 @@ def deposit_amount():
 def withdraw_amount():
     if session.get('userId') and session.get('roleId')=="2222":
         account=Account.objects(ws_acct_id=request.form["acct_id"]).first()
-        # return account["ws_acct_type"]
+
         if not request.form["withdraw_amount"].isnumeric():
             flash("Please enter only digits","danger")
             return render_template('view_withdraw.html',account=account)
@@ -666,7 +629,7 @@ def withdraw_amount():
             account.save()
             flash("Amount withdrawn successfully","success")
             return redirect('/view_single/'+request.form["acct_id"])
-        # return render_template('single_account_details.html',account = account)
+
     else:
         flash("Sorry You are not authorised to access this page","danger")
         return redirect("/")
@@ -690,10 +653,7 @@ def transfer_amount():
     if session.get('userId') and session.get('roleId')=="2222":
         form = TransferForm()
         print(form.ws_source_id.data)
-        # if form.validate_on_submit():
-        #     print("validate")    
-        # else:
-        #     print(" not validate")    
+        
         if request.method=="POST":
             
             if form.ws_source_id.data==form.ws_target_id.data:
@@ -711,16 +671,16 @@ def transfer_amount():
                     flash("Sorry you dont have enough balance in source account to transfer","danger")
                     accounts=Account.objects(ws_cust_id=cust_id).all()
                     acct_id = []
-                    # accounts[0]['ws_acct_type']
+          
                     for account in accounts:
                         acct_id.append((account.ws_acct_id,str(account.ws_acct_id)))
                     print(acct_id)
                     form.ws_cust_id.data=cust_id
                     form.ws_source_id.choices = acct_id
-                    # form.ws_source_type.data=accounts[0]['ws_acct_type']
+             
                     
                     form.ws_target_id.choices = acct_id
-                    # form.ws_target_type.data=accounts[0]['ws_acct_type']
+                 
                     return render_template("view_transfer.html",form=form)
                 else:
                     
@@ -756,11 +716,10 @@ def account_statement():
         acc_id = []
         if accounts:
             acct_type=accounts[0]['ws_acct_type']
-            # accounts[0]['ws_acct_type']
+         
             for account in accounts:
                 acc_id.append((account.ws_acct_id))
-            
-            # form.ws_acct_id.choices = acc_id
+           
         if(request.method=='POST'):
             acc_id=request.form.get('ws_acct_id')
             type=request.form.get('type')
