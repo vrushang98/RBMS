@@ -15,8 +15,8 @@ Retail Bank Management System
 
 # Login/Registration
 
-- When you visit the above link,two default accounts for user and two rolws will be created/inserted into database
-  - [executive@gmail.com](mailto:executive@gmail.com) (Customer Accont Executive)
+- When you visit the above link,two default accounts for user and two roles will be created/inserted into database
+  - [executive@gmail.com](mailto:executive@gmail.com) (Customer Account Executive)
     - Password:123456789
     - roleId:1111
     - roleName:CAE
