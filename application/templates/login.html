@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+
+{% block content%}
+
+    <div class="content">
+    <div class="center">
+        <div class="container">
+            <center><h1>Login</h1></center>
+          <form name="login" action="/login" method="POST" novalidate>
+            {{form.hidden_tag()}}
+            <div class="row">
+              <div class="col-25">
+                <!-- <label for="username">Username</label> -->
+                {{form.email.label}}
+              </div>
+              <div class="col-75">
+                <p>
+                    {{form.email(class_="form-control",placeholder="Email",size=35)}}
+                    {% for error in form.email.errors %}
+                         <span class="error-message" >{{error}}</span>
+                    {% endfor %}
+                </p>
+                <!-- <input type="text" id="username" name="username" placeholder="Username" required autofocus> -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <!-- <label for="password">Password</label> -->
+                {{form.password.label}}
+              </div>
+              <div class="col-75">
+                <p>
+                    {{form.password(class_="form-control",placeholder="Password")}}
+                    {% for error in form.password.errors %}
+                        <span class="error-message" >{{error}}</span>
+                    {% endfor %}
+                </p>
+                <!-- <input type="password" id="password" name="password" placeholder="Password" required> -->
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+                <p>
+                    {{form.submit(class="submit-btn")}}
+                </p>   
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %} 

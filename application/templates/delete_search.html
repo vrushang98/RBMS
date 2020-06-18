@@ -1,0 +1,32 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    delete customer
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <div class="center">
+    <div class="container">
+      <div class="row">  
+        <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Delete Customer Search</h2></br>
+      </div>
+      <form action="/delete_search" method="post">
+
+          <div class="row">
+              <div class="col-25" style="font-size: 14px;">
+                <label for="customer ssn id">Customer SSN ID:</label>
+              </div>
+              <div class="col-75">
+                <input type="number" name="ssn_id" placeholder="SSN ID" style="width:100%" required />
+              </div>
+          </div>
+          <br/>
+          <div class="row">
+              <input type="submit" value="Confirm" style="background-color: rgb(209, 26, 42);" class="submit-btn">  
+            </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

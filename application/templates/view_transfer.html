@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+Create Account
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="center">
+        <div class="container">
+            <div class="row">
+                <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Transfer Amount</h2>
+            </div>
+            <form name="create_account" action="/transfer_amount" method="post" >
+              {{form.hidden_tag()}}
+                <div class="row">
+                    <div class="col-25" style="font-size: 14px;">
+                        {{form.ws_cust_id.label}}
+                        <span style="color: red;"><sup>*</sup></span>
+                    </div>
+                    <div class="col-75">
+                        {{form.ws_cust_id(readonly="readonly", style="width:100%")}}
+                        {% for error in form.ws_cust_id.errors %}
+                          <span class="error-message">{{error}}</span>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-25" style="font-size: 14px;">
+                            {{form.ws_source_id.label}}
+                            <span style="color: red;"><sup>*</sup></span>
+                        </div>
+                        <div class="col-75">
+                            {{form.ws_source_id(style="width:100%")}}
+                            {% for error in form.ws_source_id.errors %}
+                                <span class="error-message">{{error}}</span>
+                            {% endfor %}
+                          </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-25" style="font-size: 14px;">
+                                {{form.ws_source_type.label}}
+                                <span style="color: red;"><sup>*</sup></span>
+                            </div>
+                            <div class="col-75">
+                                <div class="col-75">
+                                    {{form.ws_source_type(disabled=True, style="width:100%")}}
+                                    {% for error in form.ws_source_type.errors %}
+                                        <span class="error-message">{{error}}</span>
+                                    {% endfor %}
+                                  </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-25" style="font-size: 14px;">
+                                    {{form.ws_target_id.label}}
+                                    <span style="color: red;"><sup>*</sup></span>
+                                </div>
+                                <div class="col-75">
+                                    {{form.ws_target_id(style="width:100%")}}
+                                    {% for error in form.ws_target_id.errors %}
+                                        <span class="error-message">{{error}}</span>
+                                    {% endfor %}
+                                  </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-25" style="font-size: 14px;">
+                                        {{form.ws_target_type.label}}
+                                        <span style="color: red;"><sup>*</sup></span>
+                                    </div>
+                                    <div class="col-75">
+                                        {{form.ws_target_type(disabled=True,style="width:100%")}}
+                                        {% for error in form.ws_target_type.errors %}
+                                            <span class="error-message">{{error}}</span>
+                                        {% endfor %}
+                                      </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25" style="font-size: 14px;">
+                                        {{form.ws_transfer_amount.label}}
+                                        <span style="color: red;"><sup>*</sup></span>
+                                    </div>
+                                    <div class="col-75">
+                                        {{form.ws_transfer_amount(type="number",required="required", style="width:100%",placeholder="Transfer Amount")}}
+                                        {% for error in form.ws_transfer_amount.errors %}
+                                            <span class="error-message">{{error}}</span>
+                                        {% endfor %}
+                                      </div>
+                                </div>
+
+
+
+
+
+                               
+        
+    
+                <br/>
+                <div class="row">
+                    {{form.submit(class="submit-btn")}}
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+<script>
+  $(document).ready(function(){
+    
+    $("#ws_source_id").change(function(){
+      $.post("/get_acct_type",{
+          acct_id:$("#ws_source_id").val()
+      },
+      function(data,status){
+          console.log(data);
+          $("#ws_source_type").html(data);
+          $("#ws_source_type").val(data);
+  
+      });
+    });
+    $("#ws_target_id").change(function(){
+      $.post("/get_acct_type",{
+          acct_id:$("#ws_target_id").val()
+      },
+      function(data,status){
+          console.log(data);
+          $("#ws_target_type").html(data);
+          $("#ws_target_type").val(data);
+  
+      });
+    });
+  });
+  </script>
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+Create Account
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<!-- <div class="content">
+  <div class="center">
+    <div class="container-table">
+        <table>
+            <tr>
+              <th>Customer ID</th>
+              <th>Account ID</th> 
+              <th>Account Type</th> 
+              <th>Balance</th> 
+              <th>Transaction</th>
+            </tr>
+            <tr>
+              <td rowspan="3">12345678910</td>
+              <td rowspan="3">Smith</td>
+              <td rowspan="3">saving</td>
+              <td rowspan="3">953844385</td>
+              <td >
+                <div class="submit-btn">
+                  <button type="submit">
+                      Deposit
+                  </button> 
+                </div>
+              </td>
+            </tr>
+              <tr>
+                <td>
+                  <button type="submit">
+                    Withdraw
+                  </button> 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button type="submit">
+                    Transfer
+                  </button> 
+                </td>
+              </tr>
+          </table>   
+  </div>
+</div>
+</div> -->
+
+<!-- <div class="content"> 
+  <div class="center">
+    <div class="container-table">
+      <div class="row">
+          <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Details</h2>
+      </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div> -->
+    
+ <div class="content1"> 
+      <div class="center">
+          <div class="container-table">
+              <div class="row">
+                  <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Details</h2>
+              </div>
+              <div class="row" style="overflow-x:auto;">
+                <table class="table" >
+                  <tr style="background: #454d55;border-color: #454d55; color: white;"> 
+                      <th>
+                        <label>Customer Id</label>
+                      </th>
+    
+                      <th>
+                        <label>Account Id</label>
+                      </th>
+    
+                      <th>
+                        <label>Account Type</label>
+                      </th>
+    
+                      <th>
+                        <label>Balance</label>
+                      </th>
+    
+                      <th>
+                        <label>Transaction</label>
+                      </th> 
+                    </tr>
+                  {% for item in account %}
+                    
+                  <tr>
+                    <td rowspan="3">
+                        {{ item.ws_cust_id }} 
+                    </td>
+  
+                    <td rowspan="3">
+                        {{ item.ws_acct_id }}
+                    </td>
+  
+                    <td rowspan="3">
+                        {% if item.ws_acct_type =='saving' %}
+                        Saving
+                        {% else %}
+                        Current
+                        {% endif %} 
+                    </td>
+  
+                    <td rowspan="3">
+                        {{ item.ws_acct_balance }}
+                    </td>
+                    <td>
+                      <form action="/view_deposit" method="POST">
+                          <button value="{{item.ws_acct_id}}" name="acct_id" style="width: 100%;margin: 0;" class="deposit submit-btn" style="float: unset;">Deposit</button>
+                      </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <form action="/view_withdraw" method="POST">
+                        <button value="{{item.ws_acct_id}}" name="acct_id" style="width: 100%;margin: 0;" class="withdraw submit-btn" style="float: unset;">Withdraw</button>
+                      </form>
+                    </td>
+                  </tr>    
+                      
+                  <tr>
+                    <td>
+                      <form action="/view_transfer" method="POST">
+                        <button value="{{item.ws_cust_id}}" style="width: 100%;margin: 0;" name="cust_id" class="transfer submit-btn" style="float: unset;">Transfer</button>
+                      </form>
+                    </td>
+                  </tr>        
+                  
+                  {% endfor %}
+                </table>
+              </div>
+      
+          </div>
+      </div>
+    </div> 
+
+
+    <!-- <div class="content"> 
+      <div class="center">
+          <div class="container-table">
+      <table class="w3-table-all">
+        <thead>
+          <tr class="w3-red">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+
+          </tr>
+        </thead>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td><td>50</td><td>50</td>
+        </tr>
+        <tr>
+          <td>Eve</td>
+          <td>Jackson</td>
+          <td>94</td><td>50</td><td>50</td>
+        </tr>
+        <tr>
+          <td>Adam</td>
+          <td>Johnson</td>
+          <td>67</td><td>50</td><td>50</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+
+{% endblock %}

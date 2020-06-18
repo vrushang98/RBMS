@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+Account Search
+{% endblock %}
+
+{% block content %}
+<div class="content"> 
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Search Account For Deposit,Withdraw,Transfer</h2></br>
+        </div>
+        <form name="account_search" action="/account_search" method="post" novalidate>
+            {{form.hidden_tag()}}
+            
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                    {{form.ws_acc_id.label}}
+                </div>
+                <div class="col-75">
+                    {{form.ws_acc_id(type="number", placeholder="Account ID", style="width:100%")}}
+                    {% for error in form.ws_acc_id.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+                <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">OR</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                    {{form.ws_cust_id.label}}
+                </div>
+                <div class="col-75">
+                    {{form.ws_cust_id(type="number", placeholder="Customer Id",style="width:100%")}}
+                    {% for error in form.ws_cust_id.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %} 
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                {{form.submit(class="submit-btn")}}
+            </div>
+        </form>    
+    </div>
+</div>
+</div>
+{% endblock %}

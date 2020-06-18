@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content%}
+
+<div class="content"> 
+    <div class="center">
+        <div class="container-table">
+            <div class="row">
+                <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Statement</h2><br>
+                <h3 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Number:{{ws_acct_id}}</h3>
+                {% if start_date%}
+                <h3 style="text-align: center; font-family: 'Open Sans', sans-serif;">Starting Date:{{start_date}}</h3>
+                    
+                {% endif %}
+                {% if end_date%}
+                <h3 style="text-align: center; font-family: 'Open Sans', sans-serif;">Ending Date:{{end_date}}</h3>
+                    
+                {% endif %}
+            </div>
+            
+                <table class="table">
+                    <tr style="background: #454d55;border-color: #454d55; color: white;"> 
+                        <th>
+                        <label>Transaction Id</label>
+                        </th>
+    
+                        <th>
+                        <label>Description</label>
+                        </th>
+    
+                        <th>
+                        <label>Amount</label>
+                        </th>
+    
+                        <th>
+                        <label>Date</label>
+                        </th>
+    
+                    </tr>
+                    {% for Transaction in Transactions %}  
+                  
+                        <tr>
+                            <td>
+                                {{Transaction.ws_transaction_id}}
+                            </td>
+
+                            <td>
+                                {{Transaction.ws_description}}
+                            </td>
+
+                            <td>
+                                {{Transaction.ws_amount}}
+                            </td>
+
+                            <td>
+                                {{Transaction.ws_trxn_date}}
+                            </td>
+                        </tr>
+                
+                    {% endfor %}
+                </table>
+
+                <br/>
+                <button class="submit-btn" onclick="window.print()">Download as pdf</button>
+            </div>
+           
+                
+          
+    
+        </div>
+        
+    </div>
+    
+</div> 
+
+{% endblock %}
+
+

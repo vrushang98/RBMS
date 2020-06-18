@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="content">
+        <div class="center">
+            <div class="container">
+                <div class="row">
+                    <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Statement</h2>
+                </div>
+                <form action="/account_statement" method="post">
+                    
+                    <div class="row">
+                        <div class="col-25" style="font-size: 14px;">
+                                <label for="ws_acct_id">Account ID:</label>
+                         
+                        </div>
+                        <div class="col-75">
+                                <select name='ws_acct_id' style="width: 50%;">
+                                        {% for acc_ids in acc_id%}
+                                            <option value="{{acc_ids}}">{{acc_ids}}</option>    
+                                        {% endfor %}
+                                        </select>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-25" style="font-size: 14px;">
+                            
+                        
+                        </div>
+                        <div class="col-75">
+                                <input type="radio"  name="type" value="Last number of Transactions" id="Last number of Transactions" checked/>
+                                <label for="Last number of Transactions">Last number of Transactions:</label><br>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-25" style="font-size: 14px;">
+                          
+                        
+                        </div>
+                        <div class="col-75">
+                                <input type="radio"  name="type" value="start-end date" id="start-end date">
+                                <label for="start-end date">start-end date</label><br>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                            <input type='submit'value='submit'/>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+
+{% endblock %}
+

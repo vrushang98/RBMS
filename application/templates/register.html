@@ -1,0 +1,84 @@
+
+    {% extends "layout.html" %}
+   
+    {% block content %}
+
+<div class="content">
+    <div class="center">
+        <div class="container">
+            <center><h1>Register</h1></center>
+          <form name="register" action="/register" method="POST" novalidate>
+            {{form.hidden_tag()}}
+            <div class="row">
+              <div class="col-25">
+                {{form.email.label}}
+              </div>
+              <div class="col-75">
+                {{form.email(class_="form-control",placeholder="Email",size=35)}}
+                {% for error in form.email.errors %}
+                  <span class="error-message">{{error}}</span>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                {{form.password.label}}
+              </div>
+              <div class="col-75">
+                <p>
+                    {{form.password(class_="form-control",placeholder="Password")}}
+                    {% for error in form.password.errors %}
+                        <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                  {{ form.password_confirm.label }}
+                </div>
+                <div class="col-75">
+                    {{ form.password_confirm(class_="form-control",placeholder="Confirm Password")}}
+                    {% for error in form.password_confirm.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                {{ form.name.label }}
+              </div>
+              <div class="col-75">
+                  {{ form.name(class_="form-control",placeholder="Name")}}
+                  {% for error in form.name.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                {{ form.role_id.label }}
+              </div>
+              <div class="col-75">
+                  {{ form.role_id(class_="form-control",placeholder="Role ID")}}
+                  {% for error in form.role_id.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+                <p>
+                    {{form.submit(class="submit-btn")}}
+                </p>   
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

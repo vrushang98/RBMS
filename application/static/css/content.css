@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+* {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.alert .alert-success{
+  color: green !important;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=password], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=number], select, textarea {
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+	font-family: 'Open Sans', sans-serif;
+}
+
+input[type=submit] {
+  background-color: #0984e3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-left: 2vw;
+  margin-bottom: 1vh;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-left: 2vw;
+  margin-bottom: 1vh;
+}
+
+input[type=reset] {
+  background-color: #0984e3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color:#227093;
+}
+
+input[type=reset]:hover {
+  background-color:#227093;
+}
+
+.container {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color:#dfe6e9;
+  padding: 20px;
+  width: 50%;
+}
+
+.container-table{
+  border-radius: 5px;
+  /* background-color: #C0C0C0; */
+  padding: 20px;
+  width: 80%;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  /* padding-bottom: 2%; */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.submit-btn{
+  width: 150px;
+  padding-top: 1em;
+  background-color: #0984e3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-left: 2vw;
+  margin-bottom: 1vh;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	padding-top: 25vh;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  font-size: 20px;
+}
+
+table, th, td {
+  
+  border-collapse: collapse;
+}
+
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+} 
+
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.btn-group button {
+  background-color: rgba(45,37,77, 0.8); /* Green background */
+  border: 1px solid rgba(45,37,77, 1); 
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  margin-left: 15px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: rgba(45,37,77, 1);
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit], input[type=reset],input[type=number] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.error-message{
+  color: red;
+}

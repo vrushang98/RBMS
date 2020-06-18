@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+Create Account
+{% endblock %}
+
+{% block content %}
+<!-- <h1>Customer Id:{{account.ws_cust_id}}</h1>
+<h1>Account Id:{{account.ws_acct_id}}</h1>
+<h1>Account Type:{{account.ws_acct_type}}</h1>
+<h1>Balance:{{account.ws_acct_balance}}</h1>
+
+
+        
+<form action="/view_deposit" method="POST">
+  <button type="submit" value="{{account.ws_acct_id}}" name="acct_id" class="deposit">Deposit</button>
+</form>
+
+<form action="/view_withdraw" method="POST">
+  <button value="{{account.ws_acct_id}}" name="acct_id" class="withdraw">Withdraw</button>
+</form>
+
+<form action="/view_transfer" method="POST">
+  <button value="{{account.ws_cust_id}}" name="cust_id" class="transfer">Transfer</button>
+</form> -->
+ 
+<!-- <div class="content"> 
+  <div class="center">
+      <div class="container">
+          <div class="row">
+              <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Details</h2>
+          </div>
+          <div class="row">
+            <table class="table" style="width: 800px;text-align: center;border-collapse: collapse;" border="1" >
+              <tr> 
+                <th>
+                  <label>Customer Id</label>
+                </th>
+
+                <th>
+                  <label>Account Id</label>
+                </th>
+
+                <th>
+                  <label>Account Type</label>
+                </th>
+
+                <th>
+                  <label>Balance</label>
+                </th>
+
+                <th>
+                  <label>Transaction</label>
+                </th> 
+              </tr>
+                
+              <tr>
+                <td rowspan="3">
+                  {{account.ws_cust_id}} 
+                </td>
+
+                <td rowspan="3">
+                  {{account.ws_acct_id}}
+                </td>
+
+                <td rowspan="3">
+                  {{account.ws_acct_type}}
+                </td>
+
+                <td rowspan="3">
+                  {{account.ws_acct_balance}}
+                </td>
+                <td>
+                  <form action="/view_deposit" method="POST">
+                      <button value="{{account.ws_acct_id}}" name="acct_id" class="deposit submit-btn" style="float: left;">Deposit</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <form action="/view_withdraw" method="POST">
+                    <button value="{{account.ws_acct_id}}" name="acct_id" class="withdraw submit-btn" style="float: left;">Withdraw</button>
+                  </form>
+                </td>
+              </tr>    
+                  
+              <tr>
+                <td>
+                  <form action="/view_transfer" method="POST">
+                    <button value="{{account.ws_cust_id}}" name="cust_id" class="transfer submit-btn" style="float: left;">Transfer</button>
+                  </form>
+                </td>
+              </tr>        
+              
+            </table>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<div class="content1"> 
+  <div class="center">
+      <div class="container-table">
+          <div class="row">
+              <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Details</h2>
+          </div>
+          <div class="row" style="overflow-x:auto;">
+            <table class="table" >
+              <tr style="background: #454d55;border-color: #454d55; color: white;"> 
+                  <th>
+                    <label>Customer Id</label>
+                  </th>
+
+                  <th>
+                    <label>Account Id</label>
+                  </th>
+
+                  <th>
+                    <label>Account Type</label>
+                  </th>
+
+                  <th>
+                    <label>Balance</label>
+                  </th>
+
+                  <th>
+                    <label>Transaction</label>
+                  </th> 
+                </tr>
+                
+              <tr>
+                <td rowspan="3">
+                  {{account.ws_cust_id}} 
+                </td>
+
+                <td rowspan="3">
+                  {{account.ws_acct_id}}
+                </td>
+
+                <td rowspan="3">
+                  {{account.ws_acct_type}}
+                </td>
+
+                <td rowspan="3">
+                  {{account.ws_acct_balance}}
+                </td>
+                <td>
+                  <form action="/view_deposit" method="POST">
+                      <button value="{{account.ws_acct_id}}" name="acct_id" style="width: 100%;margin: 0;" class="deposit submit-btn" style="float: unset;">Deposit</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #eee;">
+                  <form action="/view_withdraw" method="POST">
+                    <button value="{{account.ws_acct_id}}" name="acct_id" style="width: 100%;margin: 0;" class="withdraw submit-btn" style="float: unset;">Withdraw</button>
+                  </form>
+                </td>
+              </tr>    
+                  
+              <tr>
+                <td>
+                  <form action="/view_transfer" method="POST">
+                    <button value="{{account.ws_cust_id}}" name="cust_id" style="width: 100%;margin: 0;" class="transfer submit-btn" style="float: unset;">Transfer</button>
+                  </form>
+                </td>
+              </tr>        
+              
+            </table>
+          </div>
+  
+      </div>
+  </div>
+</div> 
+
+    
+
+
+<!-- 
+<script>
+    $(document).ready(function(){
+      
+
+      $(".deposit").click(function(){
+        $.post("/view_deposit",{
+            acct_id:$(".deposit").val()
+        },
+        function(data,status){
+            // console.log(data);
+            // $("#ws_acct_type").html(data);
+            // $("#ws_acct_type").val(data);
+            document.write(data);
+    
+        });
+      });
+      $(".withdraw").click(function(){
+        $.post("/view_withdraw",{
+            acct_id:$(".withdraw").val()
+        },
+        function(data,status){
+            // console.log(data);
+            // $("#ws_acct_type").html(data);
+            // $("#ws_acct_type").val(data);
+            document.write(data);
+        });
+      });
+      $(".transfer").click(function(){
+        $.post("/view_transfer",{
+            acct_id:$(".transfer").val()
+        },
+        function(data,status){
+            // console.log(data);
+            // $("#ws_acct_type").html(data);
+            // $("#ws_acct_type").val(data);
+    
+        });
+      });
+    });
+    </script> -->
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+Create Account
+{% endblock %}
+
+{% block content %}
+<div class="content">
+        <div class="center">
+            <div class="container">
+                <div class="row">
+                    <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Withdraw Amount</h2>
+                </div>
+                <form name="create_account" action="/withdraw_amount" method="post" >
+                    
+                    <div class="row">
+                        <div class="col-25" style="font-size: 14px;">
+                            <label>Customer ID:</label> 
+                            <span style="color: red;"><sup>*</sup></span>
+                        </div>
+                        <div class="col-75">
+                           <input type="text" value="{{account.ws_cust_id}}" readonly/>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-25" style="font-size: 14px;">
+                                    <label>Account ID:</label> 
+                                <span style="color: red;"><sup>*</sup></span>
+                            </div>
+                            <div class="col-75">
+                                    <input type="text" value="{{account.ws_acct_id}}" readonly/>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-25" style="font-size: 14px;">
+                                        <label>Account Type:</label> 
+                                    <span style="color: red;"><sup>*</sup></span>
+                                </div>
+                                <div class="col-75">
+                                        <input type="text" value="{{account.ws_acct_type}}" readonly/>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-25" style="font-size: 14px;">
+                                        <label>Account Balance:</label>
+                                        <span style="color: red;"><sup>*</sup></span>
+                                    </div>
+                                    <div class="col-75">
+                                            <input type="text" value="{{account.ws_acct_balance}}" readonly/>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-25" style="font-size: 14px;">
+                                            <label>Withdraw Amount:</label>
+                                            <span style="color: red;"><sup>*</sup></span>
+                                        </div>
+                                        <div class="col-75">
+                                                <input type="number" name="withdraw_amount" placeholder="Withdraw Amount" style="width:100%"  required/>
+                                            
+                                        </div>
+                                    </div>
+            
+        
+                    <br/>
+                    <div class="row">
+                            <button type="submit" name="acct_id" onclick="return confirm('Are you sure to Withdraw amount?')" value="{{account.ws_acct_id}}" class="submit-btn" >Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+
+{% endblock %}

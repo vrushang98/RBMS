@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content%}
+<h1>Transfer Money</h1>
+    
+<form action="/view_account_statement_date" method="post">
+    <label for="ws_acct_id">account id:</label>
+    <input type='text'name='ws_acct_id' value="{{acc_id}}" readonly />
+    <br>
+    
+    <label for="Start date">start date:</label>
+    <input type='date' name='start_date'placeholder="YYYY-MM-DD" required/> 
+    <br>
+    <label for="End date">End date:</label>
+    <input type='date' name='end_date' placeholder="YYYY-MM-DD" required/>    
+    <br>
+    <input type='submit'value='submit'/>
+</form>
+{% endblock %}
+

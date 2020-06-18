@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content%}
+
+    
+<div class="content"> 
+    <div class="center">
+        <div class="container-table">
+            <div class="row">
+                <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Customer Status</h2>
+            </div>
+        <table class="table">
+            <thead>
+                    <tr style="background: #454d55;border-color: #454d55; color: white;"> 
+                    <th>Customer ssn_id</th>
+                    <th>Customer Name</th>
+                    <th>Status</th>
+                    <th>Message</th>
+                    <th>Last Updated</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+        <tbody>
+      
+
+            {% for customer in customers %}    
+
+            <tr>
+                <td>{{customer.ws_ssn_id}}</td>
+                <td>{{customer.ws_cust_id}}</td>
+                <td>{{customer.ws_status}}</td>
+                <td>{{customer.ws_message}}</td>
+                <td>{{customer.ws_cust_lastUdate}}</td>
+                <td>
+                  
+                    <form action="/customer_status" method="POST">
+                        <center><button style="width: 100%;margin: 0;" class="deposit submit-btn">Refresh</button></center>
+                    </form>
+               
+                  </td>
+                <!-- <td><a href="/customer_status"><button>Refresh</button></a></td> -->
+                
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+  
+</div>
+</div>
+</div> 
+
+
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content%}
+
+<div class="content1"> 
+        <div class="center">
+            <div class="container-table">
+                <div class="row">
+                    <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Status</h2>
+                </div>
+
+        <table class="table">
+            <thead>
+                    <tr style="background: #454d55;border-color: #454d55; color: white;"> 
+                    <th>Customer id</th>
+                    <th>Account id</th>
+                    <th>Account type</th>
+
+                    <th>Account Status</th>
+                    <th>Message</th>
+                    <th>Last Updated</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+        <tbody>
+      
+
+            {% for account in accounts %}    
+
+            <tr>
+                <td>{{account.ws_cust_id}}</td>
+                <td>{{account.ws_acct_id}}</td>
+                <td>{{account.ws_acct_type}}</td>
+                <td>{{account.ws_acct_status}}</td>
+                <td>{{account.ws_message}}</td>
+                <td>{{account.ws_acct_lastUdate}}</td>
+                <td>
+                  
+                        <form action="/account_status" method="POST">
+                            <center><button style="width: 100%;margin: 0;" class="deposit submit-btn">Refresh</button></center>
+                        </form>
+                   
+                      </td>
+                
+                
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+    </div>
+  
+</div>
+</div>
+</div> 
+
+{% endblock %}
+
+

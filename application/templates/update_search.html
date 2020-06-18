@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+update customer search
+{% endblock %}
+
+{% block content %}
+
+<div class="content">
+  <div class="center">
+    <div class="container">
+      <form action="/update_search" method="post">
+      <div class="row" >
+          <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Update Customer</h2></br>
+      </div>
+        <div class="row">
+          <div class="col-25" style="font-size: 14px;">
+            <label for="customer ssn id">SSN ID:</label>
+          </div>
+          <div class="col-75">   
+            <input type="number" name='ssn_id' placeholder="Customer SSN ID" style="width:100%">   
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-75" style="font-size: 14px;">
+            </br><h3 style="text-align: center;">OR</h3></br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25" style="font-size: 14px;">
+              <label for="customer ssn id" >Customer ID:</label>
+            </div>
+            <div class="col-75">   
+              <input type="number" name='cust_id' placeholder="Customer SSN ID" style="width:100%" />   
+            </div>
+          </div>
+        <div class="row">
+          <br>
+          <input type="submit" value="Submit" class="submit-btn">
+          <input type="reset" value="Reset" class="submit-btn">    
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- <h1> update customer search</h1>
+    <form action="/update_search" method="post">
+        <label for="customer ssn id">customer ssn id:</label>
+        <input type="text" name='ssn_id'  required/>
+        <br>
+        <input type="submit" value="submit">
+    </form> -->
+{% endblock %}

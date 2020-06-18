@@ -1,0 +1,67 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    delete customer
+{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Delete Customer</h2>
+        </div>
+        <form action="/delete_customer/{{ delete_customer.ws_ssn_id}}" method="post">
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                <label for="customer ssn id">Customer SSN ID:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name='ssn_id' value="{{ delete_customer.ws_ssn_id}}" disabled/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                <label for="customer id">Customer ID</label>
+                </div>
+                <div class="col-75">
+                    <input  type="text" name='ssn_id' value="{{ delete_customer.ws_cust_id}}" disabled/>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                    <label for="customer name">Customer Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name='customer_name' value='{{ delete_customer.ws_name}}' disabled/>
+                </div>
+            </div>   
+
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                    <label for="age">Age</label>
+                </div>
+                <div class="col-75">
+                    <input  type="number" name='age' value='{{ delete_customer.ws_age}}' disabled/>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-25" style="font-size: 14px;">
+                    <label for="address">Address</label>
+                </div>
+                <div class="col-75">
+                    <textarea rows="5" cols="10" maxlength="100" style="width: 100%" disabled>{{delete_customer.ws_address}}</textarea>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <input type="submit" onclick="return confirm('Are you sure to delete?')" value="Confirm Delete" style="background-color: rgb(209, 26, 42);" class="submit-btn">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

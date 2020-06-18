@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content%}
+
+<div class="content"> 
+    <div class="center">
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center; font-family: 'Open Sans', sans-serif;">Account Statement (Transactions)</h1>
+            </div>
+            <form action="/view_account_statement_number" method="post">
+                <div class="row" style="overflow-x:auto;">
+                    <table style="border: 0px;">
+                        <tr >
+                            <td style="border: 0px">
+                                <div class="row">
+                                    <div class="col-75" style="font-size: 14px;">
+                                        <label for="ws_acct_id">Account ID:</label>
+                                    </div>
+                              </td>
+                              <td style="border: 0px;">
+                                <div class="col-75">
+                                    <input type='text' name='ws_acct_id' value="{{acc_id}}" style="width:125%" readonly/>
+                                </div>
+                              </td>
+                        </tr>
+
+                        <tr style="background-color:#dfe6e9 ;">
+                            <td style="border: 0px">
+                                <div class="row">
+                                    <div class="col-75" style="font-size: 14px;">
+                                        <label for="number of Transactions">Number of Transactions:</label>
+                                    </div>
+                              </td>
+                              <td style="border: 0px;">
+                                <div class="col-75">
+                                    <input type="number"  name="number_of_Transactions" style="width: 125%;" required >
+                                </div>
+                              </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" style="border: 0px;">
+                                <div class="row">
+                                    <input type='submit'value='submit' class="submit-btn"/>
+                                </div>
+                            </td>
+                        </tr>
+          
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

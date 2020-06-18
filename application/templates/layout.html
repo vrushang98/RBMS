@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, "> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> -->
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/content.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/header-footer.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    .alert-success{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(106, 176, 76,1.0);
+	color: white;
+  }
+  .alert-danger{
+    display: flex;
+    background-color: rgba(255, 118, 117,1.0);
+    justify-content: center;
+	color: white;
+  }
+    </style>
+</head>
+<body>
+        {% include "includes/header.html" %}
+
+        {% with messages = get_flashed_messages(with_categories=true)  %}  
+                {% if messages  %}
+                    {% for category,message in messages %}
+                    
+                        <div class="alert-{{category}}">
+                           <p>{{message}}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+        {% endwith %}
+        {%block content%}
+
+        {%endblock%}
+
+        {% include "includes/footer.html" %}
+</body>
+</html>

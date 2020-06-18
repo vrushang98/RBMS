@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+   
+{% block title %}
+Create Account
+{% endblock %}
+
+{% block content %}
+<div class="content">
+        <div class="center">
+            <div class="container">
+                <div class="row">
+                    <h2 style="text-align: center; font-family: 'Open Sans', sans-serif;">Transfer Details</h2>
+                </div>
+                <form name="create_account" action="/deposit_amount" method="post" >
+                    
+                    <div class="row">
+                        <div class="col-25" style="font-size: 14px;">
+                            <label>Source ID:</label> 
+                            <span style="color: red;"><sup>*</sup></span>
+                        </div>
+                        <div class="col-75">
+                           <input type="text" value="{{source_id}}" readonly/>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-25" style="font-size: 14px;">
+                                    <label>Source Old Balance::</label> 
+                                <span style="color: red;"><sup>*</sup></span>
+                            </div>
+                            <div class="col-75">
+                                    <input type="text" value="{{old_source}}" readonly/>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-25" style="font-size: 14px;">
+                                        <label>Source Updated Balance::</label> 
+                                    <span style="color: red;"><sup>*</sup></span>
+                                </div>
+                                <div class="col-75">
+                                        <input type="text" value="{{new_source}}" readonly/>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-25" style="font-size: 14px;">
+                                        <label>Target ID:</label>
+                                        <span style="color: red;"><sup>*</sup></span>
+                                    </div>
+                                    <div class="col-75">
+                                            <input type="text" value="{{target_id}}" readonly/>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-25" style="font-size: 14px;">
+                                            <label>Target Old Balance:</label>
+                                            <span style="color: red;"><sup>*</sup></span>
+                                        </div>
+                                        <div class="col-75">
+                                                <input type="text" value="{{old_target}}" readonly/>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-25" style="font-size: 14px;">
+                                                <label>Target Updated Balance:</label>
+                                                <span style="color: red;"><sup>*</sup></span>
+                                            </div>
+                                            <div class="col-75">
+                                                    <input type="text" value="{{new_target}}" readonly/>
+                                                
+                                            </div>
+                                        </div>
+            
+        
+                    <br/>
+                    
+                </form>
+            </div>
+        </div>
+        </div>
+
+
+
+        
+
+{% endblock %}

@@ -1,0 +1,92 @@
+<header>
+    <nav>
+        <div id="logo">FedChoice <span style="color: azure;">Bank</span></div>
+            
+    
+            </li> 
+
+
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop" />
+                <ul class="menu1">
+                    {% if not session["userId"] %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+               
+
+                {% if session["userId"] and session["roleId"]=="1111" %}
+                <li><a href="{{ url_for('register') }}">Home</a></li>
+                <li>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Customer Management 
+                        <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                        <a href="{{ url_for('create_customer') }}">Create Customer</a>
+                        <a href="{{ url_for('update_search')}}">Update Customer</a>
+                        <a href="{{ url_for('delete_search')}}">Delete Customer</a>
+                        </div>
+                    </div> 
+                </li>
+                <div class="dropdown">
+                        <button class="dropbtn">Account Management 
+                        <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                        <a href="{{ url_for('create_account') }}">Create Account</a>
+                        <a href="{{ url_for('account_delete_search')}}">Account Delete</a>
+                        </div>
+                    </div> 
+                    <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">Status Details 
+                                <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="{{ url_for('customer_status') }}" class="nav-link">Customer Status</a>
+                                    <a href="{{ url_for('account_status') }}" class="nav-link">Account Status</a>
+                                </div>
+                            </div> 
+                        </li>
+                        
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %}
+                {% if session["userId"] and session["roleId"]=="2222" %}
+                <li><a href="{{ url_for('register') }}">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Account Management 
+                        <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                        <a href="{{ url_for('account_search')}}">Account Operation</a>
+                        </div>
+                    </div> 
+                </li>
+                <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Status Details 
+                            <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="{{ url_for('customer_status') }}" class="nav-link">Customer Status</a>
+                                <a href="{{ url_for('account_status') }}" class="nav-link">Account Status</a>
+                                <a href="{{ url_for('account_statement') }}" class="nav-link">Account Statement</a>
+                            </div>
+                        </div> 
+                    </li>
+                    
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %}
+
+                
+
+                
+
+        </ul>
+    </nav>
+
+    
+</header>
